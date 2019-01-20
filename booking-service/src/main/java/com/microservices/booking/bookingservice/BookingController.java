@@ -32,7 +32,7 @@ public class BookingController {
         repository.save(newBooking);
         return newBooking;
     }
-/*
+
     @RequestMapping(value = "booking", method = RequestMethod.GET)
     public Iterable<Booking> retrieveAllBookings(){
         return repository.findAll();
@@ -44,8 +44,17 @@ public class BookingController {
         return booking;
     }
 
+    @RequestMapping(value = "booking/delete/{id}", method = RequestMethod.DELETE)
+    public void deleteBookingById(@PathVariable int id){
+        repository.deleteById(id);
+    }
 
-    @RequestMapping(value = "booking/guest/{id}", method = RequestMethod.GET)
+
+
+    /*
+    !!NullPointer!!
+
+    @RequestMapping(value = "booking/table/{id}", method = RequestMethod.GET)
     public List<Booking> retrieveTablesBooking(@PathVariable int id){
         List<Booking> bookings = service.findBookedTables(id);
         return bookings;
