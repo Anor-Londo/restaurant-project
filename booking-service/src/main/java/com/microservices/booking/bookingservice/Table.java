@@ -1,16 +1,16 @@
 package com.microservices.booking.bookingservice;
 
-public class TableBean {
+public class Table {
 
     private Integer id;
     private int capacity;
     private int cost;
 
-    public TableBean(){
+    public Table(){
 
     }
 
-    public TableBean(int capacity, int cost) {
+    public Table(int capacity, int cost) {
         this.capacity = capacity;
         this.cost = cost;
     }

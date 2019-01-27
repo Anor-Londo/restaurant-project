@@ -1,6 +1,5 @@
 package com.microservices.booking.bookingservice;
 
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -26,8 +25,8 @@ public class BookingController {
             , consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public Booking add(@PathVariable int tableId, @PathVariable int guestId, @RequestBody Booking booking){
 
-        TableBean tableResponse = tableProxy.retrieveOneTable(tableId);
-        GuestBean guestResponse = guestProxy.findGuestById(guestId);
+        Table tableResponse = tableProxy.retrieveOneTable(tableId);
+        Guest guestResponse = guestProxy.findGuestById(guestId);
         Booking newBooking = new Booking(tableResponse.getId(), guestResponse.getId(), booking.getTime());
         repository.save(newBooking);
         return newBooking;

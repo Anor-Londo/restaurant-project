@@ -1,16 +1,16 @@
 package com.microservices.booking.bookingservice;
 
-public class GuestBean {
+public class Guest {
 
     private Integer id;
     private String name;
     private String phone;
 
-    public GuestBean(){
+    public Guest(){
 
     }
 
-    public GuestBean(String name, String phone) {
+    public Guest(String name, String phone) {
         this.name = name;
         this.phone = phone;
     }
