@@ -11,25 +11,14 @@ import java.util.Optional;
 public class BookingController {
 
     @Autowired
-    private TableServiceProxy tableProxy;
-
-    @Autowired
-    private GuestServiceProxy guestProxy;
-
-    @Autowired
     private BookingRepository repository;
 
     private BookingService service;
 
-    @RequestMapping(value = "booking/table/{tableId}/guest/{guestId}", method = RequestMethod.POST
+    @RequestMapping(value = "booking/add", method = RequestMethod.POST
             , consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public Booking add(@PathVariable int tableId, @PathVariable int guestId, @RequestBody Booking booking){
-
-        Table tableResponse = tableProxy.retrieveOneTable(tableId);
-        Guest guestResponse = guestProxy.findGuestById(guestId);
-        Booking newBooking = new Booking(tableResponse.getId(), guestResponse.getId(), booking.getTime());
-        repository.save(newBooking);
-        return newBooking;
+    public void add(@RequestBody Booking booking){
+        repository.save(booking);
     }
 
     @RequestMapping(value = "booking", method = RequestMethod.GET)

@@ -8,38 +8,16 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class GatewayController {
 
+    @Autowired
     private GuestServiceProxy guestProxy;
+
+    @Autowired
     private TableServiceProxy tableProxy;
+
+    @Autowired
     private BookingServiceProxy bookingProxy;
 
     private GatewayService gatewayService;
-
-    public GuestServiceProxy getGuestProxy() {
-        return guestProxy;
-    }
-
-    @Autowired
-    public void setGuestProxy(GuestServiceProxy guestProxy) {
-        this.guestProxy = guestProxy;
-    }
-
-    public TableServiceProxy getTableProxy() {
-        return tableProxy;
-    }
-
-    @Autowired
-    public void setTableProxy(TableServiceProxy tableProxy) {
-        this.tableProxy = tableProxy;
-    }
-
-    public BookingServiceProxy getBookingProxy() {
-        return bookingProxy;
-    }
-
-    @Autowired
-    public void setBookingProxy(BookingServiceProxy bookingProxy) {
-        this.bookingProxy = bookingProxy;
-    }
 
     //-----------------------------------------------------------------------------------//
 
@@ -48,8 +26,8 @@ public class GatewayController {
     public Booking add(@PathVariable int tableId, @PathVariable int guestId, @RequestBody Booking booking){
 
         Booking newBooking = gatewayService.add(tableId, guestId, booking);
-        repository.save(newBooking);
-        return newBooking;
+        bookingProxy.add(newBooking);
+        return null;
     }
 
     @RequestMapping(value = "guest-service/guest/{id}", method = RequestMethod.GET)

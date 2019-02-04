@@ -15,26 +15,11 @@ import java.util.Optional;
 @RequestMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class TableController {
 
+    @Autowired
     private TableRepository repository;
+
+    @Autowired
     private TableService service;
-
-    @Autowired
-    public void setRepository(TableRepository repository) {
-        this.repository = repository;
-    }
-
-    public TableRepository getRepository() {
-        return repository;
-    }
-
-    @Autowired
-    public void setService(TableService service) {
-        this.service = service;
-    }
-
-    public TableService getService() {
-        return service;
-    }
 
     @RequestMapping(value = "table", method = RequestMethod.GET)
     public Iterable<Table> retrieveAllTables() {
