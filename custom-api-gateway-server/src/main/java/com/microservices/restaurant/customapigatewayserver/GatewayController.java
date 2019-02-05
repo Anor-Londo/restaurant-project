@@ -5,6 +5,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -24,6 +25,24 @@ public class GatewayController {
 
     //--------------------------------BOOKING-----------------------------------------//
 
+
+    @RequestMapping(value = "booking-service/booking", method = RequestMethod.GET)
+    public Iterable<Booking> retrieveAllBookings(){
+        Iterable<Booking> allBookings = bookingProxy.retrieveAllBookings();
+        return allBookings;
+    }
+
+    @RequestMapping(value = "booking-service/booking/{id}", method = RequestMethod.GET)
+    public Optional<Booking> retrieveBookingById(@PathVariable int id){
+        Optional<Booking> booking = bookingProxy.retrieveBookingById(id);
+        return booking;
+    }
+
+    @RequestMapping(value = "booking-service/booking/delete/{id}", method = RequestMethod.DELETE)
+    public void deleteBookingById(@PathVariable int id){
+        bookingProxy.deleteBookingById(id);
+    }
+
     @RequestMapping(value = "booking-service/booking/table/{tableId}/guest/{guestId}", method = RequestMethod.POST
             , consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public Booking add(@PathVariable int tableId, @PathVariable int guestId, @RequestBody Booking booking){
@@ -33,8 +52,7 @@ public class GatewayController {
         return null;
     }
 
-
-
+    
     //--------------------------------GUEST--------------------------------------------//
 
     @RequestMapping(value = "guest-service/guest", method = RequestMethod.GET)
