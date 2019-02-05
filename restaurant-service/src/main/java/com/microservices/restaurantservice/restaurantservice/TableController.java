@@ -26,19 +26,19 @@ public class TableController {
         return repository.findAll();
     }
 
-    @RequestMapping(value = "/table/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "table/{id}", method = RequestMethod.GET)
     public Optional<Table> retrieveOneTable(@PathVariable int id){
         return repository.findById(id);
     }
 
-    @RequestMapping(value = "/table/capacity/{capacity}", method = RequestMethod.GET)
+    @RequestMapping(value = "table/capacity/{capacity}", method = RequestMethod.GET)
     public List<Table> retrieveTableByCapacity(@PathVariable int capacity){
         List<Table> tables = service.findByCapacity(capacity);
         return tables;
     }
 
-    @RequestMapping(value = "/table/cost/from/{from}/to/{to}", method = RequestMethod.GET)
-    public List<Table> retrieveTableByCapacity(@PathVariable int from, @PathVariable int to){
+    @RequestMapping(value = "table/cost/from/{from}/to/{to}", method = RequestMethod.GET)
+    public List<Table> retrieveTableByCost(@PathVariable int from, @PathVariable int to){
         List<Table> tables = service.findBetweenCost(from, to);
         return tables;
     }

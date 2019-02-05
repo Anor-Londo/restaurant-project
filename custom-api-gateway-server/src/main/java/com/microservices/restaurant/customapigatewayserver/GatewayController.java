@@ -63,5 +63,28 @@ public class GatewayController {
     }
 
     //------------------------------Table--------------------------------------------//
-    
+
+    @RequestMapping(value = "table-service/table", method = RequestMethod.GET)
+    public Iterable<Table> retrieveAllTables(){
+        Iterable<Table> allTables = tableProxy.retrieveAllTables();
+        return allTables;
+    }
+
+    @RequestMapping(value = "table-service/table/{id}", method = RequestMethod.GET)
+    public Table retrieveOneTable(@PathVariable int id){
+        Table tableFound = tableProxy.retrieveOneTable(id);
+        return tableFound;
+    }
+
+    @RequestMapping(value = "table-service/table/capacity/{capacity}", method = RequestMethod.GET)
+    public List<Table> retrieveTableByCapacity(@PathVariable int capacity){
+        List<Table> tablesFound = tableProxy.retrieveTableByCapacity(capacity);
+        return tablesFound;
+    }
+
+    @RequestMapping(value = "table-service/table/cost/from/{from}/to/{to}", method = RequestMethod.GET)
+    public List<Table> retrieveTableByCost(@PathVariable("from") int from, @PathVariable("to") int to){
+        List<Table> tablesFound = tableProxy.retrieveTableByCost(from, to);
+        return tablesFound;
+    }
 }
