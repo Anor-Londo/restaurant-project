@@ -17,6 +17,7 @@ public class GatewayController {
     @Autowired
     private BookingServiceProxy bookingProxy;
 
+    @Autowired
     private GatewayService gatewayService;
 
     //-----------------------------------------------------------------------------------//

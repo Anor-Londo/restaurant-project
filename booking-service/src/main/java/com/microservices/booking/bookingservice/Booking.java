@@ -3,6 +3,7 @@ package com.microservices.booking.bookingservice;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "booking")
