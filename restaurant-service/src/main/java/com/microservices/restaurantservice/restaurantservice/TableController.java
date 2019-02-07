@@ -47,4 +47,7 @@ public class TableController {
     public void reserveTable(@PathVariable int id){
         service.reserveTable(id);
     }
+
+    @RequestMapping(value = "table/cancel/{id}", method = RequestMethod.PUT)
+    public void cancelGuest(@PathVariable int id){service.cancelTable(id);}
 }

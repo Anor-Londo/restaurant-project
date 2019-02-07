@@ -52,5 +52,10 @@ public class TableServiceImpl implements TableService {
         repository.reserveTable(id);
     }
 
+    @Override
+    public void cancelTable(int id) {
+        repository.cancelTable(id);
+    }
+
 
 }

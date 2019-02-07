@@ -6,10 +6,18 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
+
 @Repository
 public interface TableRepository extends CrudRepository<Table, Integer> {
 
+    @Transactional
     @Modifying
-    @Query("update rest set reserved = true where id = :id")
-    Table reserveTable(@Param("tableId") Integer id);
+    @Query("update Table set reserved = true where id = :id")
+    Integer reserveTable(@Param("id") Integer id);
+
+    @Transactional
+    @Modifying
+    @Query("update Table set reserved = false where id = :id")
+    Integer cancelTable(@Param("id") Integer id);
 }
