@@ -5,4 +5,5 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 public interface GatewayService {
     public Booking add(int tableId, int guestId, Booking booking);
+    public void delete(int bookingId);
 }

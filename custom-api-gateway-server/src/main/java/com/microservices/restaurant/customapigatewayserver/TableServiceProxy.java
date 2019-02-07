@@ -24,4 +24,9 @@ public interface TableServiceProxy {
     @RequestMapping(value = "table/cost/from/{from}/to/{to}", method = RequestMethod.GET)
     public List<Table> retrieveTableByCost(@PathVariable("from") int from, @PathVariable("to") int to);
 
+    @RequestMapping(value = "table/reserve/{id}", method = RequestMethod.PUT)
+    public void reserveTable(@PathVariable("id") int id);
+
+    @RequestMapping(value = "table/cancel/{id}", method = RequestMethod.PUT)
+    public void cancelTable(@PathVariable("id") int id);
 }

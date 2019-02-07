@@ -49,5 +49,5 @@ public class TableController {
     }
 
     @RequestMapping(value = "table/cancel/{id}", method = RequestMethod.PUT)
-    public void cancelGuest(@PathVariable int id){service.cancelTable(id);}
+    public void cancelTable(@PathVariable int id){service.cancelTable(id);}
 }

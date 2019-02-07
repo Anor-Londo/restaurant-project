@@ -43,6 +43,8 @@ public class BookingServiceImpl implements BookingService {
         return bookingsFound;
     }
 
+
+
     @Override
     public Booking findBookedGuest(int guestId) {
         return null;

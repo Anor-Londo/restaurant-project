@@ -40,7 +40,7 @@ public class GatewayController {
 
     @RequestMapping(value = "booking-service/booking/delete/{id}", method = RequestMethod.DELETE)
     public void deleteBookingById(@PathVariable int id){
-        bookingProxy.deleteBookingById(id);
+        gatewayService.delete(id);
     }
 
     @RequestMapping(value = "booking-service/booking/table/{tableId}/guest/{guestId}", method = RequestMethod.POST

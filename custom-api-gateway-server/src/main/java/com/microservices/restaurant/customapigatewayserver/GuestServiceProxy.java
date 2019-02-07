@@ -26,4 +26,10 @@ public interface GuestServiceProxy {
     @RequestMapping(value = "guest/create", method = RequestMethod.POST
             , consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public Guest createGuest(@RequestBody Guest request);
+
+    @RequestMapping(value = "guest/reserve/{id}", method = RequestMethod.PUT)
+    public void reserveGuest(@PathVariable("id") int id);
+
+    @RequestMapping(value = "guest/cancel/{id}", method = RequestMethod.PUT)
+    public void cancelGuest(@PathVariable("id") int id);
 }

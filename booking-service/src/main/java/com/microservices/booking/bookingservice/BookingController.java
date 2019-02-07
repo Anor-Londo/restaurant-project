@@ -13,6 +13,7 @@ public class BookingController {
     @Autowired
     private BookingRepository repository;
 
+    @Autowired
     private BookingService service;
 
     @RequestMapping(value = "booking/add", method = RequestMethod.POST
@@ -38,14 +39,11 @@ public class BookingController {
     }
 
 
+    //----------------------Helpfull_requests_for_gateway--------------------------------//
 
-    /*
-    !!NullPointer!!
-
-    @RequestMapping(value = "booking/table/{id}", method = RequestMethod.GET)
-    public List<Booking> retrieveTablesBooking(@PathVariable int id){
-        List<Booking> bookings = service.findBookedTables(id);
-        return bookings;
+    @RequestMapping(value = "booking/tableId/{id}", method = RequestMethod.GET)
+    public Integer retrieveReservedTable(@PathVariable int id){
+        Integer tableId = repository.findTableId(id);
+        return tableId;
     }
-    */
 }

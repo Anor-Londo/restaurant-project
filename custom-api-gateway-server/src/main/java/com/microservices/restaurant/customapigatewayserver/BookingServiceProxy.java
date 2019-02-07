@@ -25,4 +25,7 @@ public interface BookingServiceProxy {
     @RequestMapping(value = "booking/delete/{id}", method = RequestMethod.DELETE)
     public void deleteBookingById(@PathVariable("id") int id);
 
+    @RequestMapping(value = "booking/tableId/{id}", method = RequestMethod.GET)
+    public Integer retrieveReservedTable(@PathVariable("id") int id);
+
 }
