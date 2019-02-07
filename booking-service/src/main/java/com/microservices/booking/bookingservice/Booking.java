@@ -64,6 +64,7 @@ public class Booking {
         this.time = time;
     }
 
+
     @Override
     public String toString() {
         return "Booking{" +

@@ -17,6 +17,7 @@ public class GatewayServiceImpl implements GatewayService{
 
         Table tableResponce = tableProxy.retrieveOneTable(tableId);
         Guest guestResponce = guestProxy.findGuestById(guestId);
+
         return new Booking(tableResponce.getId(), guestResponce.getId(), booking.getTime());
     }
 }

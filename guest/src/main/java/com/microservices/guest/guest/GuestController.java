@@ -54,4 +54,12 @@ public class GuestController {
     Guest guest = service.createGuest(request.getName(), request.getPhone());
     return null;
     }
+
+    @RequestMapping(value = "guest/reserve/{id}", method = RequestMethod.PUT)
+    public void reserveGuest(@PathVariable int id){
+        service.reserveGuest(id);
+    }
+
+    @RequestMapping(value = "guest/cancel/{id}", method = RequestMethod.PUT)
+    public void cancelGuest(@PathVariable int id){service.cancelGuest(id);}
 }

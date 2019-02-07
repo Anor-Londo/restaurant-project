@@ -16,13 +16,17 @@ public class Table {
     @Column(name = "cost")
     private int cost;
 
+    @Column(name = "reserved")
+    private boolean reserved;
+
     public Table(){
 
     }
 
-    public Table(int capacity, int cost) {
+    public Table(int capacity, int cost, boolean reserved) {
         this.capacity = capacity;
         this.cost = cost;
+        this.reserved = reserved;
     }
 
     public Integer getId() {
@@ -49,12 +53,21 @@ public class Table {
         this.cost = cost;
     }
 
+    public boolean isReserved() {
+        return reserved;
+    }
+
+    public void setReserved(boolean reserved) {
+        this.reserved = reserved;
+    }
+
     @Override
     public String toString() {
         return "Table{" +
                 "id=" + id +
                 ", capacity=" + capacity +
                 ", cost=" + cost +
+                ", reserved=" + reserved +
                 '}';
     }
 }

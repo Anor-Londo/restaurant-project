@@ -43,4 +43,8 @@ public class TableController {
         return tables;
     }
 
+    @RequestMapping(value = "table/reserve/{id}", method = RequestMethod.PUT)
+    public void reserveTable(@PathVariable int id){
+        service.reserveTable(id);
+    }
 }

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TableServiceImpl implements TableService {
@@ -45,4 +46,11 @@ public class TableServiceImpl implements TableService {
         }
         return tablesFound;
     }
+
+    @Override
+    public void reserveTable(int id) {
+        repository.reserveTable(id);
+    }
+
+
 }

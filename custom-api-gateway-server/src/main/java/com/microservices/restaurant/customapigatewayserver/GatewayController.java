@@ -52,7 +52,7 @@ public class GatewayController {
         return null;
     }
 
-    
+
     //--------------------------------GUEST--------------------------------------------//
 
     @RequestMapping(value = "guest-service/guest", method = RequestMethod.GET)

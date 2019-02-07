@@ -22,7 +22,7 @@ public class GuestServiceImpl implements GuestService {
 
     @Override
     public Guest createGuest(String name, String phone) {
-        Guest guest = new Guest(name, phone);
+        Guest guest = new Guest(name, phone, false);
         repository.save(guest);
         return null;
     }
@@ -37,5 +37,15 @@ public class GuestServiceImpl implements GuestService {
             }
         }
         return guestsFound;
+    }
+
+    @Override
+    public void reserveGuest(int id) {
+        repository.reserveGuest(id);
+    }
+
+    @Override
+    public void cancelGuest(int id) {
+        repository.cancelGuest(id);
     }
 }

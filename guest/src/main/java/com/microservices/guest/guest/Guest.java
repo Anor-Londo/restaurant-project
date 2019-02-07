@@ -16,13 +16,17 @@ public class Guest {
     @Column(name = "phone")
     private String phone;
 
+    @Column(name = "reserved")
+    private boolean reserved;
+
     public Guest(){
 
     }
 
-    public Guest(String name, String phone) {
+    public Guest(String name, String phone, boolean reserved) {
         this.name = name;
         this.phone = phone;
+        this.reserved = reserved;
     }
 
     public Integer getId() {
@@ -49,12 +53,21 @@ public class Guest {
         this.phone = phone;
     }
 
+    public boolean isReserved() {
+        return reserved;
+    }
+
+    public void setReserved(boolean reserved) {
+        this.reserved = reserved;
+    }
+
     @Override
     public String toString() {
         return "Guest{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", phone='" + phone + '\'' +
+                ", reserved" + reserved +
                 '}';
     }
 }
