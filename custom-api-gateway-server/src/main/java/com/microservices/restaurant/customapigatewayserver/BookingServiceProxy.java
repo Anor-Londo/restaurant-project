@@ -28,4 +28,7 @@ public interface BookingServiceProxy {
     @RequestMapping(value = "booking/tableId/{id}", method = RequestMethod.GET)
     public Integer retrieveReservedTable(@PathVariable("id") int id);
 
+    @RequestMapping(value = "booking/guestId/{id}", method = RequestMethod.GET)
+    public Integer retrieveReservedGuest(@PathVariable("id") int id);
+
 }

@@ -46,4 +46,10 @@ public class BookingController {
         Integer tableId = repository.findTableId(id);
         return tableId;
     }
+
+    @RequestMapping(value = "booking/guestId/{id}", method = RequestMethod.GET)
+    public Integer retrieveReservedGuest(@PathVariable int id){
+        Integer guestId = repository.findGuestId(id);
+        return guestId;
+    }
 }

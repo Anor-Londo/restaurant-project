@@ -14,4 +14,8 @@ public interface BookingRepository extends CrudRepository<Booking, Integer> {
     @Transactional
     @Query("select tableId from Booking where id = :id")
     Integer findTableId(@Param("id") Integer id);
+
+    @Transactional
+    @Query("select guestId from Booking where id = :id")
+    Integer findGuestId(@Param("id") Integer id);
 }
