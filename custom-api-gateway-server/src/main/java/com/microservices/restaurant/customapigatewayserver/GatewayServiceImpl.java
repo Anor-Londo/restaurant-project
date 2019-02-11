@@ -29,6 +29,7 @@ public class GatewayServiceImpl implements GatewayService{
 
     @Override
     public void delete(int bookingId) {
+
         tableProxy.cancelTable(bookingProxy.retrieveReservedTable(bookingId));
         guestProxy.cancelGuest(bookingProxy.retrieveReservedGuest(bookingId));
         bookingProxy.deleteBookingById(bookingId);

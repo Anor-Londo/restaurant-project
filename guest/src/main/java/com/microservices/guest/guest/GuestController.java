@@ -33,33 +33,34 @@ public class GuestController {
     }
 
     @RequestMapping(value = "guest", method = RequestMethod.GET)
-    public Iterable<Guest> retrieveAllGuests(){
+    public Iterable<Guest> retrieveAllGuests() {
         return repository.findAll();
     }
 
     @RequestMapping(value = "guest/{id}", method = RequestMethod.GET)
-    public Optional<Guest> findGuestById(@PathVariable int id){
+    public Optional<Guest> findGuestById(@PathVariable int id) {
         return repository.findById(id);
     }
 
     @RequestMapping(value = "guest/find/{cs}", method = RequestMethod.GET)
-    public List<Guest> findGuests(@PathVariable String cs){
+    public List<Guest> findGuests(@PathVariable String cs) {
         List<Guest> guests = service.findByCharSequance(cs);
         return guests;
     }
 
     @RequestMapping(value = "guest/create", method = RequestMethod.POST
             , consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public Guest createGuest(@RequestBody Guest request){
-    Guest guest = service.createGuest(request.getName(), request.getPhone());
-    return null;
+    public Guest createGuest(@RequestBody Guest request) {
+        return service.createGuest(request.getName(), request.getPhone());
     }
 
     @RequestMapping(value = "guest/reserve/{id}", method = RequestMethod.PUT)
-    public void reserveGuest(@PathVariable int id){
+    public void reserveGuest(@PathVariable int id) {
         service.reserveGuest(id);
     }
 
     @RequestMapping(value = "guest/cancel/{id}", method = RequestMethod.PUT)
-    public void cancelGuest(@PathVariable int id){service.cancelGuest(id);}
+    public void cancelGuest(@PathVariable int id) {
+        service.cancelGuest(id);
+    }
 }
