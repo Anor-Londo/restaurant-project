@@ -24,7 +24,8 @@ public class GatewayServiceImpl implements GatewayService{
         Guest guestResponce = guestProxy.findGuestById(guestId);
         tableProxy.reserveTable(tableId);
         guestProxy.reserveGuest(guestId);
-        return new Booking(tableResponce.getId(), guestResponce.getId(), booking.getTime());
+        return new Booking(tableResponce.getId(), guestResponce.getId(),
+                booking.getTime(), guestResponce.getName(), tableResponce.getTableNumber());
     }
 
     @Override

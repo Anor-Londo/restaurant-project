@@ -1,18 +1,21 @@
 package com.microservices.booking.bookingservice;
-
 public class Table {
 
     private Integer id;
     private int capacity;
     private int cost;
+    private boolean reserved;
+    private int tableNumber;
 
     public Table(){
 
     }
 
-    public Table(int capacity, int cost) {
+    public Table(int capacity, int cost, boolean reserved, int tableNumber) {
         this.capacity = capacity;
         this.cost = cost;
+        this.reserved = reserved;
+        this.tableNumber = tableNumber;
     }
 
     public Integer getId() {
@@ -39,4 +42,19 @@ public class Table {
         this.cost = cost;
     }
 
+    public boolean isReserved() {
+        return reserved;
+    }
+
+    public void setReserved(boolean reserved) {
+        this.reserved = reserved;
+    }
+
+    public int getTableNumber() {
+        return tableNumber;
+    }
+
+    public void setTableNumber(int tableNumber) {
+        this.tableNumber = tableNumber;
+    }
 }

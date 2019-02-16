@@ -5,14 +5,16 @@ public class Guest {
     private Integer id;
     private String name;
     private String phone;
+    private boolean reserved;
 
     public Guest(){
 
     }
 
-    public Guest(String name, String phone) {
+    public Guest(String name, String phone, boolean reserved) {
         this.name = name;
         this.phone = phone;
+        this.reserved = reserved;
     }
 
     public Integer getId() {
@@ -39,4 +41,11 @@ public class Guest {
         this.phone = phone;
     }
 
+    public boolean isReserved() {
+        return reserved;
+    }
+
+    public void setReserved(boolean reserved) {
+        this.reserved = reserved;
+    }
 }

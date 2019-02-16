@@ -19,14 +19,18 @@ public class Table {
     @Column(name = "reserved")
     private boolean reserved;
 
+    @Column(name = "table_number")
+    private int tableNumber;
+
     public Table(){
 
     }
 
-    public Table(int capacity, int cost, boolean reserved) {
+    public Table(int capacity, int cost, boolean reserved, int tableNumber) {
         this.capacity = capacity;
         this.cost = cost;
         this.reserved = reserved;
+        this.tableNumber = tableNumber;
     }
 
     public Integer getId() {
@@ -61,6 +65,14 @@ public class Table {
         this.reserved = reserved;
     }
 
+    public int getTableNumber() {
+        return tableNumber;
+    }
+
+    public void setTableNumber(int tableNumber) {
+        this.tableNumber = tableNumber;
+    }
+
     @Override
     public String toString() {
         return "Table{" +
@@ -68,6 +80,7 @@ public class Table {
                 ", capacity=" + capacity +
                 ", cost=" + cost +
                 ", reserved=" + reserved +
+                ", tableNumber=" + tableNumber +
                 '}';
     }
 }

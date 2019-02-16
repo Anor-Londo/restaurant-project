@@ -22,14 +22,22 @@ public class Booking {
     @Column(name = "time")
     private String time;
 
+    @Column(name = "guest_name")
+    private String guestName;
+
+    @Column(name = "table_number")
+    private int tableNumber;
+
     public Booking(){
 
     }
 
-    public Booking(int tableId, int guestId, String time) {
+    public Booking(int tableId, int guestId, String time, String guestName, int tableNumber) {
         this.tableId = tableId;
         this.guestId = guestId;
         this.time = time;
+        this.guestName = guestName;
+        this.tableNumber = tableNumber;
     }
 
     public Integer getId() {
@@ -64,6 +72,21 @@ public class Booking {
         this.time = time;
     }
 
+    public String getGuestName() {
+        return guestName;
+    }
+
+    public void setGuestName(String guestName) {
+        this.guestName = guestName;
+    }
+
+    public int getTableNumber() {
+        return tableNumber;
+    }
+
+    public void setTableNumber(int tableNumber) {
+        this.tableNumber = tableNumber;
+    }
 
     @Override
     public String toString() {
@@ -72,6 +95,8 @@ public class Booking {
                 ", tableId=" + tableId +
                 ", guestId=" + guestId +
                 ", time='" + time + '\'' +
+                ", guestName=" + guestName +
+                ", tableNumber"+ tableNumber +
                 '}';
     }
 }
