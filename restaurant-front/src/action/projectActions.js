@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_ERRORS, GET_GUESTS } from "./types";
+import { GET_ERRORS, GET_GUESTS, GET_TABLES } from "./types";
 
 export const createGuest = (guest, history) => async dispatch => {
   try {
@@ -19,6 +19,15 @@ export const getGuests = () => dispatch => {
   axios.get("http://localhost:8090/guest-service/guest").then(res =>
     dispatch({
       type: GET_GUESTS,
+      payload: res.data
+    })
+  );
+};
+
+export const getTables = () => dispatch => {
+  axios.get("http://localhost:8090/table-service/table").then(res =>
+    dispatch({
+      type: GET_TABLES,
       payload: res.data
     })
   );

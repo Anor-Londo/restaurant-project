@@ -7,6 +7,8 @@ import store from "./store";
 import Dashboard from "./components/dashboard";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./components/header";
+import TableDashboard from "./components/tableDashboard";
+import TableItem from "./components/tableItem";
 
 class App extends Component {
   render() {
@@ -16,7 +18,7 @@ class App extends Component {
           <div className="App">
             <Header />
             <Route exact path="/dashboard" component={Dashboard} />
-
+            <Route exact path="/tableDashboard" component={TableDashboard} />
             <Route exact path="/addGuest" component={AddGuest} />
           </div>
         </Router>
