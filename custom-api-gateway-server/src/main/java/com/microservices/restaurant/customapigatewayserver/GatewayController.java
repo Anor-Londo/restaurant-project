@@ -9,6 +9,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+@CrossOrigin
 public class GatewayController {
 
     @Autowired
