@@ -9,6 +9,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./components/header";
 import TableDashboard from "./components/tableDashboard";
 import TableItem from "./components/tableItem";
+import BookingDashboard from "./components/bookingDashboard";
+import AddBooking from "./project/AddBooking";
 
 class App extends Component {
   render() {
@@ -19,7 +21,13 @@ class App extends Component {
             <Header />
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/tableDashboard" component={TableDashboard} />
+            <Route
+              exact
+              path="/bookingDashboard"
+              component={BookingDashboard}
+            />
             <Route exact path="/addGuest" component={AddGuest} />
+            <Route exact path="/addBooking" component={AddBooking} />
           </div>
         </Router>
       </Provider>

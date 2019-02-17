@@ -32,3 +32,19 @@ export const getTables = () => dispatch => {
     })
   );
 };
+
+export const createBooking = (booking, history) => async dispatch => {
+  try {
+    const res = await axios.post(
+      `http://localhost:8090/booking-service/booking/table/${booking.tableId}
+      /guest/${booking.guestId}`,
+      booking
+    );
+    history.push("/bookingDashboard");
+  } catch (err) {
+    dispatch({
+      type: GET_ERRORS,
+      payload: err.response.data
+    });
+  }
+};
