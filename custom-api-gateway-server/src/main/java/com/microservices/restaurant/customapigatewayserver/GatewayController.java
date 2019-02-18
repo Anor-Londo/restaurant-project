@@ -106,4 +106,6 @@ public class GatewayController {
         List<Table> tablesFound = tableProxy.retrieveTableByCost(from, to);
         return tablesFound;
     }
+
+
 }

@@ -11,6 +11,9 @@ import TableDashboard from "./components/tableDashboard";
 import TableItem from "./components/tableItem";
 import BookingDashboard from "./components/bookingDashboard";
 import AddBooking from "./project/AddBooking";
+import Landing from "./components/Landing";
+import Register from "./components/UserManagement/Register";
+import Login from "./components/UserManagement/Login";
 
 class App extends Component {
   render() {
@@ -19,6 +22,16 @@ class App extends Component {
         <Router>
           <div className="App">
             <Header />
+            {
+              //Public Routes
+            }
+
+            <Route exact path="/" component={Landing} />
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/login" component={Login} />
+            {
+              //Private Routes
+            }
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/tableDashboard" component={TableDashboard} />
             <Route
